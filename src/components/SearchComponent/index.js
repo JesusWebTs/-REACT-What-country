@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ButtonComponent from "../ButtonComponent";
 import FilterComponent from "../FilterComponent";
 import "./styles.css";
@@ -7,6 +7,12 @@ function SearchComponent({ onChangeFilter, onChangeGroup }) {
     continent: false,
     language: true,
   });
+
+  useEffect(() => {
+    target.language ? onChangeGroup("languages") : onChangeGroup("continent");
+    return () => {};
+  }, []);
+
   return (
     <div className="seach-component__container">
       <div className="search-component__filter-input">
@@ -23,7 +29,7 @@ function SearchComponent({ onChangeFilter, onChangeGroup }) {
               continent: true,
               language: false,
             });
-            onChangeGroup("continents");
+            onChangeGroup("continent");
           }}
         />
         <ButtonComponent

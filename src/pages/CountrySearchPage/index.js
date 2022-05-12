@@ -6,16 +6,38 @@ import { GroupSection, SearchComponent } from "../../components";
 import { useQuery } from "@apollo/react-hooks";
 //GrphQlQury
 import { graphQL } from "../../services";
-//Dummy
+//Helpers
+import { countrySplitByGroup } from "../../helpers";
 import { languageCountrysDummy } from "./dummys/country-dumy";
 function CountrySearchPage() {
   const { loading, error, data } = useQuery(graphQL.queries.GET_Countrys());
   const [countries, setCountries] = useState([]);
-  let onChangeFilter = (filter) => {};
-  let onChangeGroup = (groupGroup) => {};
+  const [filter, setFilter] = useState("");
+  const [group, setGroup] = useState("");
 
   useEffect(() => {
-    if (!loading) setCountries(data);
+    return () => {};
+  }, []);
+
+  useEffect(() => {
+    if (data) {
+      let _countries = countrySplitByGroup({
+        countries: data.countries,
+        group,
+      });
+      setCountries(_countries);
+    }
+    return () => {};
+  }, [group]);
+
+  useEffect(() => {
+    if (!loading) {
+      let _countries = countrySplitByGroup({
+        countries: data.countries,
+        group,
+      });
+      setCountries(_countries);
+    }
     return () => {};
   }, [loading]);
 
@@ -26,13 +48,18 @@ function CountrySearchPage() {
       </div>
       <div className="search-page__searcher">
         <SearchComponent
-          onChangeFilter={onChangeFilter}
-          onChangeGroup={onChangeGroup}
+          onChangeFilter={(value) => setFilter(value)}
+          onChangeGroup={(value) => setGroup(value)}
         />
       </div>
       <div className="search-page__groups">
-        {languageCountrysDummy.map(({ countrys, group }) => (
-          <GroupSection countrys={countrys} groupName={group} />
+        {countries.map(({ countries, group }) => (
+          <GroupSection
+            countries={countries}
+            groupName={group}
+            filter={filter}
+            group={group}
+          />
         ))}
       </div>
     </section>

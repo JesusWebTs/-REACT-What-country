@@ -7,12 +7,16 @@ function CountryCard({
   phoneId = "No Phone ID",
   flag,
   time = "No Time",
+  filter,
 }) {
-  return (
+  return name.includes(filter) && filter ? (
     <article className="country-card__container">
       <header className="country-card__header">
         <span>
-          <img src={flag} alt={name} />
+          <img
+            src={`/assets/imgs/flags/${flag.toLowerCase()}.png`}
+            alt={name}
+          />
         </span>
         <h4>{name}</h4>
       </header>
@@ -25,6 +29,8 @@ function CountryCard({
         </time>
       </div>
     </article>
+  ) : (
+    <></>
   );
 }
 
