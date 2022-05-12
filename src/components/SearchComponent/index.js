@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ButtonComponent from "../ButtonComponent";
 import FilterComponent from "../FilterComponent";
 import "./styles.css";
-function SearchComponent() {
+function SearchComponent({ onChange }) {
   let [target, setTarget] = useState({
     continent: false,
     language: true,
@@ -11,7 +11,7 @@ function SearchComponent() {
     <div className="seach-component__container">
       <div className="search-component__filter-input">
         <span>Some Random text</span>
-        <FilterComponent />
+        <FilterComponent onChange={onChange} />
       </div>
       <div className="seach-component__filter-button">
         <h3>Group by:</h3>

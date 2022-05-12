@@ -8,11 +8,13 @@ const client = new ApolloClient({
   uri: "https://48p1r2roz4.sse.codesandbox.io",
 });
 
-const App = () => (
-  <ApolloProvider client={client}>
-    <div className="App">
-      <CountrySearchPage />
-    </div>
-  </ApolloProvider>
-);
+const App = () => {
+  return (
+    <ApolloProvider client={client}>
+      <div className="App">
+        <CountrySearchPage />
+      </div>
+    </ApolloProvider>
+  );
+};
 export default App;
