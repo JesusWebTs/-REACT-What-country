@@ -18,6 +18,7 @@ const GET_Countrys = () => {
         }
         capital
         currency
+        emoji
       }
     }
   `;
