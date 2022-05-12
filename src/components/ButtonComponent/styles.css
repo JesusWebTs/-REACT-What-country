@@ -1,0 +1,12 @@
+.button-component {
+  border: 1px solid var(--global-gray-color-1);
+  border-radius: 5px;
+  width: 120px;
+  height: 25px;
+  background-color: white;
+  font-weight: bold;
+}
+.button-component--active {
+  background-color: var(--global-primary-color-1);
+  color: white;
+}

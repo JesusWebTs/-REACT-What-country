@@ -1,0 +1,15 @@
+.search-component__filter-input {
+  display: flex;
+  flex-direction: column;
+}
+.search-component__filter-input > span {
+  text-align: left;
+  color: var(--global-gray-color-1);
+  margin: 10px 0;
+}
+.seach-component__filter-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}

@@ -1,0 +1,8 @@
+@import url(./styles/colors.css);
+
+.App {
+  text-align: center;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
