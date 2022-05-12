@@ -37,3 +37,12 @@
   width: 100%;
   grid-area: groups;
 }
+
+@media (max-width: 768px) {
+  .search-page__tittle > h2 {
+    margin: 0;
+    padding: 0;
+    line-height: 28px;
+    font-size: 28px;
+  }
+}

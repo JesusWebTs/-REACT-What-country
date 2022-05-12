@@ -9,9 +9,22 @@
   margin: 20px 0;
   font-weight: bold;
 }
-.seach-component__filter-button {
+.search-component__filter-button {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+}
+
+.search-component__controls {
+  display: flex;
+  gap: 50px;
+}
+
+@media (max-width: 768px) {
+  .search-component__controls {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+  }
 }

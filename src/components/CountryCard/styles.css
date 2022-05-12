@@ -1,10 +1,13 @@
 .country-card__container {
   width: 200px;
-  height: 100px;
+  min-height: 100px;
   background-color: var(--global-white-color-2);
   padding: 10px;
   border: 2px solid var(--global-black-color-3);
   border-radius: 4px;
+  opacity: 1;
+  display: block;
+  transition: all 0.2s linear;
 }
 .country-card__header {
   display: flex;
@@ -28,10 +31,16 @@
 }
 
 .country-card__information {
+  border-top: 0.5px solid var(--global-black-color-1);
+  margin-top: 5px;
   display: flex;
   justify-content: space-evenly;
-  height: calc(100% - 15px);
+  height: min-content;
   flex-direction: column;
   align-items: flex-start;
   color: var(--global-black-color-2);
+}
+
+.country-card__information > span:nth-child(1) {
+  font-weight: bold;
 }

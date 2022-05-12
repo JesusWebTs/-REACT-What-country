@@ -1,20 +1,20 @@
 import React from "react";
 import "./styles.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faClock, faPhone } from "@fortawesome/free-solid-svg-icons";
-function CountryCard({
-  name = "No Name",
-  phoneId = "No Phone ID",
-  flag,
-  time = "No Time",
-  filter,
-}) {
+import {
+  faPhone,
+  faGlobe,
+  faMoneyBill1,
+} from "@fortawesome/free-solid-svg-icons";
+function CountryCard({ props, filter }) {
+  const { name, phone, time, code, capital, currency } = props;
+  console.log(props);
   return name.includes(filter) && filter ? (
     <article className="country-card__container">
       <header className="country-card__header">
         <span>
           <img
-            src={`/assets/imgs/flags/${flag.toLowerCase()}.png`}
+            src={`/assets/imgs/flags/${code.toLowerCase()}.png`}
             alt={name}
           />
         </span>
@@ -22,11 +22,15 @@ function CountryCard({
       </header>
       <div className="country-card__information">
         <span>
-          <FontAwesomeIcon icon={faPhone} /> {phoneId} 999.99.99
+          <FontAwesomeIcon icon={faGlobe} /> {capital}
         </span>
-        <time>
-          <FontAwesomeIcon icon={faClock} /> {time}
-        </time>
+
+        <span>
+          <FontAwesomeIcon icon={faPhone} /> +{phone}
+        </span>
+        <span>
+          <FontAwesomeIcon icon={faMoneyBill1} /> {currency}
+        </span>
       </div>
     </article>
   ) : (

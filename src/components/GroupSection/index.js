@@ -26,18 +26,13 @@ function GroupSection({
     >
       <h3 className="group-section__tittle">{groupName}</h3>
       <div className="group-section__content">
-        {countries.map(({ name, phone, code, time, languages }, i) => (
-          <React.Fragment key={i}>
-            <CountryCard
-              name={name}
-              phoneId={`+${phone}`}
-              flag={code}
-              time={time}
-              languages={languages}
-              filter={filter}
-            />
-          </React.Fragment>
-        ))}
+        {countries
+          .sort((a, b) => (a.name > b.name ? 1 : a.name < b.name ? -1 : 0))
+          .map((props, i) => (
+            <React.Fragment key={i}>
+              <CountryCard props={props} filter={filter} />
+            </React.Fragment>
+          ))}
       </div>
     </div>
   );

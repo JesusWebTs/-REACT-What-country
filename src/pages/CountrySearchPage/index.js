@@ -8,16 +8,12 @@ import { useQuery } from "@apollo/react-hooks";
 import { graphQL } from "../../services";
 //Helpers
 import { countrySplitByGroup } from "../../helpers";
-import { languageCountrysDummy } from "./dummys/country-dumy";
+
 function CountrySearchPage() {
   const { loading, error, data } = useQuery(graphQL.queries.GET_Countrys());
   const [countries, setCountries] = useState([]);
-  const [filter, setFilter] = useState("");
+  const [filter, setFilter] = useState("Ch");
   const [group, setGroup] = useState("");
-
-  useEffect(() => {
-    return () => {};
-  }, []);
 
   useEffect(() => {
     if (data) {
@@ -49,6 +45,7 @@ function CountrySearchPage() {
       <div className="search-page__searcher">
         <SearchComponent
           onChangeFilter={(value) => setFilter(value)}
+          filter={filter}
           onChangeGroup={(value) => setGroup(value)}
         />
       </div>

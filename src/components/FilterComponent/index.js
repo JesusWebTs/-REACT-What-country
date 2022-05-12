@@ -1,7 +1,7 @@
 import React from "react";
 import "./styles.css";
 import magnifyingGlass from "./assets/imgs/magnifyin_glass.svg";
-function FilterComponent({ onChange }) {
+function FilterComponent({ onChange, value }) {
   return (
     <div className="input-component__container">
       <img src={magnifyingGlass} />
@@ -10,6 +10,7 @@ function FilterComponent({ onChange }) {
         onChange={(e) => {
           onChange(e.target.value);
         }}
+        value={value}
       />
     </div>
   );
