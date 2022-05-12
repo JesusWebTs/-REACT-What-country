@@ -1,9 +1,10 @@
 .search-page__container {
   width: 70vw;
-  height: 100vh;
+  height: 100%;
+  min-height: 100vh;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: repeat(1, 25px 100px 1fr);
+  grid-template-rows: repeat(1, 30px min-content min-content);
   grid-template-areas:
     "tittle"
     "searcher"
@@ -15,8 +16,17 @@
   height: 100%;
   text-align: left;
   grid-area: tittle;
+  font-size: 24px;
+  padding: 0;
+  margin: 0;
   display: flex;
   align-items: center;
+}
+
+.search-page__tittle > h2 {
+  margin: 0;
+  padding: 0;
+  line-height: 24px;
 }
 .search-page__searcher {
   height: 100%;

@@ -1,6 +1,7 @@
 import React from "react";
 import { GroupSection, SearchComponent } from "../../components";
-import "./styles.css"
+import "./styles.css";
+import { languageCountrysDummy } from "./dummys/country-dumy";
 function CountrySearchPage() {
   return (
     <section className="search-page__container" id="search">
@@ -11,7 +12,9 @@ function CountrySearchPage() {
         <SearchComponent />
       </div>
       <div className="search-page__groups">
-        <GroupSection />
+        {languageCountrysDummy.map(({ countrys, group }) => (
+          <GroupSection countrys={countrys} groupName={group} />
+        ))}
       </div>
     </section>
   );

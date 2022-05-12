@@ -1,19 +1,22 @@
 .input-component__container {
   display: flex;
   align-items: center;
-  border: 1px solid var(--global-gray-color-1);
   border-radius: 50px;
   height: 25px;
-  padding: 0 4px;
+  padding: 0 1px;
+  border: 2px solid var(--global-gray-color-1);
+  background-color: var(--global-gray-color-2);
 }
 .input-component__container > img {
   max-height: 18px;
   max-width: 100%;
-  opacity: 0.5;
+  opacity: 0.4;
+  transform: scale(.8);
 }
 .input-component__input {
+  background-color: transparent;
   width: 100%;
   border: none;
   outline: none;
-  padding: 0 10px;
+  padding: 0 25px;
 }
