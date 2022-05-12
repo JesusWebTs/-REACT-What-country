@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ButtonComponent from "../ButtonComponent";
 import FilterComponent from "../FilterComponent";
 import "./styles.css";
-function SearchComponent({ onChange }) {
+function SearchComponent({ onChangeFilter, onChangeGroup }) {
   let [target, setTarget] = useState({
     continent: false,
     language: true,
@@ -11,7 +11,7 @@ function SearchComponent({ onChange }) {
     <div className="seach-component__container">
       <div className="search-component__filter-input">
         <span>Some Random text</span>
-        <FilterComponent onChange={onChange} />
+        <FilterComponent onChange={onChangeFilter} />
       </div>
       <div className="seach-component__filter-button">
         <h3>Group by:</h3>
@@ -23,6 +23,7 @@ function SearchComponent({ onChange }) {
               continent: true,
               language: false,
             });
+            onChangeGroup("continents");
           }}
         />
         <ButtonComponent
@@ -33,6 +34,7 @@ function SearchComponent({ onChange }) {
               continent: false,
               language: true,
             });
+            onChangeGroup("languages");
           }}
         />
       </div>
