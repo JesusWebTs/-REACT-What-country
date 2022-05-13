@@ -42,7 +42,7 @@ const countrySplitByGroup = ({ countries = [], group }) => {
       }
     }
   }
-  return arrGrouped;
+  return sortingArrByAlfabeticValue({ arr: arrGrouped });
 };
 
 export default countrySplitByGroup;
