@@ -27,4 +27,7 @@
     flex-direction: column;
     gap: 0px;
   }
+  .search-component__filter-button > h3 {
+    font-size: 18px;
+  }
 }

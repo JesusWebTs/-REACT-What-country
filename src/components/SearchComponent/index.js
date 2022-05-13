@@ -1,18 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import ButtonComponent from "../ButtonComponent";
 import FilterComponent from "../FilterComponent";
+import { useSearchComponent } from "./hooks";
 import "./styles.css";
 function SearchComponent({ onChangeFilter, onChangeGroup, filter }) {
-  let [target, setTarget] = useState({
-    continent: true,
-    language: false,
-  });
-
-  useEffect(() => {
-    target.language ? onChangeGroup("languages") : onChangeGroup("continent");
-    return () => {};
-  }, []);
-
+  let { setTarget, target } = useSearchComponent({ onChangeGroup });
   return (
     <div className="search-component__container">
       <div className="search-component__filter-input">

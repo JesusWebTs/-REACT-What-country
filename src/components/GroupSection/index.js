@@ -1,26 +1,14 @@
 import React, { createRef, useEffect, useState } from "react";
 import "./styles.css";
 import { CountryCard } from "../";
+import { useGroupSection } from "./hooks";
 function GroupSection({
   groupName = "No group name provided",
   countries = [],
   filter,
   group,
 }) {
-  let [show, setShow] = useState(true);
-  let [child, setChild] = useState(0);
-  let ref = createRef();
-  useEffect(() => {
-    Array.from(ref.current.children[1].children).length || child > 0
-      ? setShow(true)
-      : setShow(false);
-    return () => {};
-  }, [filter, group, ref, child]);
-  useEffect(() => {
-    setChild(0);
-    return () => {};
-  }, [group]);
-
+  let { ref, show } = useGroupSection({ group, filter });
   return (
     <div
       className="group-section__container"
