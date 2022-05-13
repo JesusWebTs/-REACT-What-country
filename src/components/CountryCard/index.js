@@ -6,26 +6,11 @@ import {
   faGlobe,
   faMoneyBill1,
 } from "@fortawesome/free-solid-svg-icons";
-function CountryCard({ props, filter, setChild }) {
+function CountryCard({ props, filter }) {
   const { name, phone, code, capital, currency, emoji } = props;
-  const [valid, setValid] = useState(false);
-  useEffect(() => {
-    let regExp = new RegExp(`^${filter}`, "i");
-    if (regExp.test(name)) {
-      setValid(true);
-    } else {
-      setValid(false);
-    }
-    return () => {};
-  }, [filter, valid]);
-
-  useEffect(() => {
-    if (valid) setChild((prev) => prev + 1);
-    else setChild((prev) => prev - 1);
-    return () => {};
-  }, [valid]);
-
-  return name.includes(filter) && valid && filter ? (
+  const regExp = new RegExp(`^${filter}`, "i");
+  const lowerName = name.toLowerCase();
+  return regExp.test(name) && filter ? (
     <article className="country-card__container">
       <header className="country-card__header">
         <div className="country-card__header-left">
@@ -36,14 +21,17 @@ function CountryCard({ props, filter, setChild }) {
             />
           </span>
           <h4>
-            {name.slice(0, name.indexOf(filter))}
+            {name.slice(0, lowerName.indexOf(filter.toLowerCase()))}
             <span className="country-card__filter">
               {name.slice(
-                name.indexOf(filter),
-                name.indexOf(filter) + filter.length
+                lowerName.indexOf(filter.toLowerCase()),
+                lowerName.indexOf(filter.toLowerCase()) + filter.length
               )}
             </span>
-            {name.slice(name.indexOf(filter) + filter.length, name.length)}
+            {name.slice(
+              lowerName.indexOf(filter.toLowerCase()) + filter.length,
+              name.length
+            )}
           </h4>
         </div>
         <div className="country-card__header-right">

@@ -35,7 +35,7 @@ function GroupSection({
           .sort((a, b) => (a.name > b.name ? 1 : a.name < b.name ? -1 : 0))
           .map((props, i) => (
             <React.Fragment key={i}>
-              <CountryCard props={props} filter={filter} setChild={setChild} />
+              <CountryCard props={props} filter={filter} />
             </React.Fragment>
           ))}
       </div>
