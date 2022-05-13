@@ -31,7 +31,6 @@ const countrySplitByGroup = ({ countries = [], group }) => {
           ? total[language.name].push(current)
           : (total[language.name] = [current]);
       });
-      console.log(total);
       return {
         ...total,
       };

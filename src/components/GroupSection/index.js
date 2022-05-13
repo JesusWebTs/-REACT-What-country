@@ -8,20 +8,25 @@ function GroupSection({
   group,
 }) {
   let [show, setShow] = useState(true);
+  let [child, setChild] = useState(0);
   let ref = createRef();
   useEffect(() => {
-    Array.from(ref.current.children[1].children).length > 0
+    Array.from(ref.current.children[1].children).length || child > 0
       ? setShow(true)
       : setShow(false);
     return () => {};
-  }, [filter, group]);
+  }, [filter, group, ref, child]);
+  useEffect(() => {
+    setChild(0);
+    return () => {};
+  }, [group]);
 
   return (
     <div
       className="group-section__container"
       ref={ref}
       style={{
-        display: `${show ? "block" : "none"}`,
+        display: `${show && filter.length > 0 ? "block" : "none"}`,
       }}
     >
       <h3 className="group-section__tittle">{groupName}</h3>
@@ -30,7 +35,7 @@ function GroupSection({
           .sort((a, b) => (a.name > b.name ? 1 : a.name < b.name ? -1 : 0))
           .map((props, i) => (
             <React.Fragment key={i}>
-              <CountryCard props={props} filter={filter} />
+              <CountryCard props={props} filter={filter} setChild={setChild} />
             </React.Fragment>
           ))}
       </div>

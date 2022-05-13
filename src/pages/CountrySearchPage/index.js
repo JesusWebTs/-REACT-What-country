@@ -49,6 +49,7 @@ function CountrySearchPage() {
           onChangeGroup={(value) => setGroup(value)}
         />
       </div>
+      {loading ? <h3>Loading</h3> : ""}
       <div className="search-page__groups">
         {countries.map(({ countries, group }) => (
           <GroupSection
