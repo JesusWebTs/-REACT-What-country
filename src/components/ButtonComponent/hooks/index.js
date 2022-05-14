@@ -1,3 +1,3 @@
-import useSearchComponent from "./useSearchComponent";
+import useButtonComponent from "./useButtonComponent";
 
-export { useSearchComponent };
+export { useButtonComponent };
