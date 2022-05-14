@@ -12,7 +12,7 @@ Link a la app en producción: [https://whatcountry.vercel.app/]
 
 #### BUSQUESA BINARIA
 
-Tiempo de ejecucion logaritmico
+`Tiempo de ejecucion logaritmico
 Condiciones
  Tener al menos un campo con un orden secuencial establecido por ejemplo 1n+1
 Ventajas
@@ -103,9 +103,9 @@ console.log(`N = ${N}, Target = ${T}`);
 console.log("Busqueda Logaritmica");
 medirTiempo(() => console.log(testDeBusqueda(T, arr)));
 console.log("Busqueda Normal");
-medirTiempo(() => console.log(busquedaNormal(T, arr)));
+medirTiempo(() => console.log(busquedaNormal(T, arr)));`
 
 ## Imagen comparativa de eficiencia.
 
-![image1](respuesta_pregunta_tecnica/img1.png)
+![image1](./respuesta_pregunta_tecnica/img1.png)
 
